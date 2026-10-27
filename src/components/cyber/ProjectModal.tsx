@@ -84,7 +84,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-              <span>SYSTEM ARCHITECTURE & DIRECTIVE</span>
+              <span>PROJECT OVERVIEW &amp; OBJECTIVE</span>
             </h4>
             <p className="text-sm text-slate-300 leading-relaxed font-sans">
               {project.description}
@@ -93,12 +93,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Threat Model & Attack Mitigation */}
           {project.threatModel && (
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-amber-300 mb-1 flex items-center gap-1.5">
-                <ShieldAlert className="w-4 h-4 text-amber-400" />
-                <span>THREAT MODEL & ATTACK VECTOR MITIGATION</span>
+            <div className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/20">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 mb-1 flex items-center gap-1.5">
+                <ShieldAlert className="w-4 h-4 text-cyan-400" />
+                <span>SECURITY &amp; ARCHITECTURAL FOCUS</span>
               </h4>
-              <p className="text-xs sm:text-sm text-amber-200/90 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                 {project.threatModel}
               </p>
             </div>
@@ -149,7 +149,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Technology Badges */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
-              DEPENDENCY STACK
+              TECHNOLOGY STACK
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
@@ -167,7 +167,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Footer / Actions */}
         <div className="p-6 bg-slate-950 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
           <div className="text-xs font-mono text-slate-500">
-            SHA-256 HASH VERIFIED // CLASSIFIED PROTOCOL
+            VERIFIED REPOSITORY // ACADEMIC &amp; OPEN SOURCE
           </div>
 
           <div className="flex items-center gap-3">

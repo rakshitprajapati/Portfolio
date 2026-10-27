@@ -11,7 +11,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
-  status: "Operational" | "In Development" | "Prototype";
+  status: "Operational" | "In Development" | "Prototype" | "Open Source";
   stars?: number;
 }
 
@@ -154,25 +154,25 @@ export const portfolioConfig: PortfolioConfig = {
   projects: [
     {
       id: "guardian-global",
-      title: "Guardian Global // Tourist Safety Monitoring Platform",
-      tagline: "Smart tourist safety monitoring architecture for high-risk and remote regions",
+      title: "Guardian Global: Tourist Safety System",
+      tagline: "Smart monitoring architecture designed for tourist safety in remote & high-risk regions",
       category: "Security",
       description:
-        "Designed as System Architect for Smart India Hackathon (SIH) 2025. Conceptualized an architecture for a smart tourist safety platform integrating AI for pattern monitoring, blockchain-based identity verification, and geo-fencing for real-time safety alerts in remote regions.",
+        "Developed as System Architect for Smart India Hackathon (SIH) 2025. Designed an end-to-end conceptual architecture for an intelligent tourist safety platform that utilizes automated geo-fencing perimeter alerts, emergency responder dispatch routing, and tamper-resistant digital identification to protect travelers in remote zones.",
       threatModel:
-        "Focuses on reliable identity verification, preventing location data spoofing in remote zones, and establishing secure channels for emergency alerts.",
+        "Focuses on preventing location spoofing, ensuring tamper-proof identity verification, and maintaining reliable alert transmissions even in low-connectivity remote environments.",
       architecture: [
-        "AI-assisted movement pattern and anomaly monitoring",
-        "Blockchain-based digital identity verification concept",
-        "Geo-fencing boundary triggers for high-risk zones",
-        "Emergency alert routing for remote area responders",
+        "Automated geo-fencing boundary triggers for restricted and hazardous zones",
+        "Direct emergency responder routing and automated incident dispatch",
+        "AI-assisted movement pattern and route anomaly analysis",
+        "Decentralized digital ID verification concept for verified traveler safety",
       ],
       metrics: [
         { label: "Event", value: "SIH 2025" },
         { label: "Role", value: "System Architect" },
-        { label: "Focus", value: "Safety & Geo-fencing" },
+        { label: "Focus", value: "Geo-Fencing & Safety" },
       ],
-      tags: ["Smart India Hackathon", "AI", "Blockchain", "Geo-fencing", "Architecture"],
+      tags: ["Smart India Hackathon", "Geo-Fencing", "Emergency Routing", "System Architecture"],
       githubUrl: "https://github.com/rakshitprajapati",
       featured: true,
       status: "Prototype",
@@ -180,25 +180,25 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "ehr-traditional-medicine",
-      title: "EHR Traditional Medicine API Integration",
-      tagline: "Integrating Indian traditional medicine datasets into Electronic Health Record (EHR) systems",
+      title: "Traditional Medicine EHR Integration Framework",
+      tagline: "Bridging Indian traditional medicine datasets with modern Electronic Health Record systems",
       category: "Systems",
       description:
-        "Conceptualized at National Forensic Sciences University (NFSU). Designed a web application MVP framework to integrate Indian traditional medicine datasets into standard Electronic Health Record (EHR) systems by mapping NAMASTE and ICD-11 TM2 terminologies with automated Entity-Relationship (ER) graph generation.",
+        "Academic research and API architecture project developed at National Forensic Sciences University (NFSU). Designed a middleware framework to standardize and integrate Indian traditional medicine datasets (NAMASTE portal) into Electronic Health Record (EHR) workflows mapped against WHO ICD-11 TM2 standards with automated Entity-Relationship (ER) graph generation.",
       threatModel:
-        "Emphasizes healthcare data privacy compliance, standardized medical terminology translation, and structural integrity of patient electronic records.",
+        "Prioritizes healthcare data privacy compliance, standardized semantic translation across medical terminologies, and strict schema validation for patient records.",
       architecture: [
-        "API framework mapping NAMASTE terminology to ICD-11 TM2 standards",
-        "Automated Entity-Relationship (ER) graph generation",
-        "Modular REST endpoints structured for EHR interoperability",
-        "Structured data validation schemas for medical datasets",
+        "API middleware mapping NAMASTE herbal terminologies to ICD-11 TM2 standards",
+        "Automated Entity-Relationship (ER) graph generation for healthcare data models",
+        "Modular REST API endpoints structured for standard EHR interoperability",
+        "Data validation schemas ensuring clinical integrity across medical datasets",
       ],
       metrics: [
+        { label: "Institution", value: "NFSU Goa" },
         { label: "Standard", value: "ICD-11 TM2" },
         { label: "Dataset", value: "NAMASTE" },
-        { label: "Output", value: "ER Graph Model" },
       ],
-      tags: ["API Design", "EHR Standards", "ICD-11 TM2", "NAMASTE", "NFSU"],
+      tags: ["API Design", "EHR Interoperability", "ICD-11 TM2", "Health Informatics", "NFSU Goa"],
       githubUrl: "https://github.com/rakshitprajapati",
       featured: true,
       status: "Prototype",
@@ -206,25 +206,25 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "cisco-ctf-qualification",
-      title: "Cisco Capture The Flag (CTF) Competition",
-      tagline: "Secured 1st Place at Goa Campus and 2nd Place overall across all NFSU campuses",
+      title: "Cisco CTF: Network Forensics & Web Security",
+      tagline: "Secured 1st Place at NFSU Goa and 2nd Place nationwide across all NFSU campuses",
       category: "Security",
       description:
-        "Competed with Team GOA_Nulldrift in the Cisco Capture The Flag (CTF) competition, securing 1st Place at the NFSU Goa Campus and achieving 2nd Place overall across all National Forensic Sciences University campuses nationwide. Solved practical technical challenges involving web application security, network packet forensics, and cryptography under timed competition rules.",
+        "Technical challenge investigations conducted with Team GOA_Nulldrift during the Cisco Capture The Flag (CTF) competition. Solved hands-on challenges across web application security, packet capture (PCAP) network forensics, and binary reverse engineering, earning 1st Place at NFSU Goa and 2nd Place overall across all NFSU campuses.",
       threatModel:
-        "Investigated web vulnerabilities (injection, auth bypass), packet traces (PCAP), and binary disassembly challenges to uncover flags and understand defensive remediation.",
+        "Hands-on analysis of web vulnerabilities (parameter manipulation, authentication bypass, SQL injection) and extraction of hidden credentials from network traffic captures.",
       architecture: [
-        "Web security challenge auditing and payload analysis",
-        "Network packet capture inspection (Wireshark/PCAP)",
-        "Basic binary reverse engineering workflows",
-        "Team-based collaboration and real-time problem solving",
+        "Web vulnerability auditing: payload analysis, auth bypass, and parameter tampering",
+        "Network packet capture (PCAP) inspection and forensic analysis via Wireshark",
+        "Cryptographic puzzle decoding and hash analysis workflows",
+        "High-pressure team collaboration and rapid incident triage",
       ],
       metrics: [
         { label: "Goa Campus", value: "1st Place" },
-        { label: "All NFSU Campuses", value: "2nd Place" },
+        { label: "All NFSU", value: "2nd Place" },
         { label: "Team", value: "GOA_Nulldrift" },
       ],
-      tags: ["CTF", "Cisco", "Web Security", "Network Forensics", "Team Competition"],
+      tags: ["CTF", "Cisco Security", "Network Forensics", "Web Security", "Wireshark"],
       githubUrl: "https://github.com/rakshitprajapati",
       featured: true,
       status: "Operational",
@@ -232,29 +232,29 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "gorilla-grind",
-      title: "Gorilla Grind (Gamified Diet Planning MVP)",
-      tagline: "Gamified health and fitness application MVP from concept to technical specification",
+      title: "Gorilla Grind: Gamified Diet Planner MVP",
+      tagline: "Gamified nutrition and fitness MVP designed for fast, thumb-friendly meal tracking",
       category: "Full-Stack",
       description:
-        "Designed at NFSU. Developed the concept and technical specification for a gamified health and fitness application MVP. Created comprehensive Product Requirements Documents (PRD) and intuitive screen flows to guide development and user experience.",
+        "An open-source, gamified nutrition and diet-planning MVP hosted on GitHub. Created comprehensive Product Requirements Documents (PRD), responsive screen flows, and interactive prototypes designed for single-thumb navigation ('fat responsive'). Features caloric and macronutrient calculators, meal swapping, and daily progression loops.",
       threatModel:
-        "Ensures user session security, safe input validation, and privacy protection for personal health metrics.",
+        "Built with strict input validation for biometric data, secure client-side state storage, and privacy preservation for personal dietary metrics.",
       architecture: [
-        "Comprehensive Product Requirements Document (PRD)",
-        "Interactive screen flows and UX layout specifications",
-        "Gamified habit-building and milestone mechanisms",
-        "Dietary and workout calculation logic guidelines",
+        "Comprehensive Product Requirements Document (PRD) and detailed UX screen flows",
+        "Single-thumb responsive interaction design with high-contrast dark mode",
+        "Nutritional calculation logic for caloric and macronutrient tracking",
+        "Interactive meal swapping interface with alternative dietary suggestions",
       ],
       metrics: [
         { label: "Deliverable", value: "PRD & Screen Flows" },
-        { label: "Role", value: "Product Architect" },
-        { label: "Type", value: "App MVP" },
+        { label: "Platform", value: "Web & Mobile MVP" },
+        { label: "Codebase", value: "GitHub Open Source" },
       ],
-      tags: ["Product Design", "PRD", "Screen Flows", "HealthTech", "NFSU"],
-      githubUrl: "https://github.com/rakshitprajapati",
-      featured: false,
-      status: "Prototype",
-      stars: 28,
+      tags: ["Product Design", "PRD", "UI/UX", "HealthTech", "GitHub"],
+      githubUrl: "https://github.com/rakshitprajapati/Gorilla-GRIND",
+      featured: true,
+      status: "Open Source",
+      stars: 48,
     },
   ],
   certifications: [
