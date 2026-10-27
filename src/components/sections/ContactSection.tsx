@@ -8,7 +8,6 @@ import { soundFX } from "../cyber/SoundController";
 import { GithubIcon, LinkedinIcon } from "../cyber/Icons";
 import {
   Mail,
-  Phone,
   Download,
   FileText,
   ExternalLink,
@@ -16,7 +15,6 @@ import {
   Check,
   CheckCircle2,
   MapPin,
-  MessageCircle,
   GraduationCap,
   Sparkles,
   Send,
@@ -24,7 +22,6 @@ import {
 
 export const ContactSection: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyEmail = () => {
     soundFX.playClick();
@@ -33,20 +30,13 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const handleCopyPhone = () => {
-    soundFX.playClick();
-    navigator.clipboard.writeText(portfolioConfig.socials.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
-
   return (
     <section id="contact" className="py-24 px-4 max-w-6xl mx-auto scroll-mt-20">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-[11px] font-mono text-cyan-300">
           <Send className="w-3 h-3 text-cyan-400" />
-          <span>CONTACT & COLLABORATION</span>
+          <span>CONTACT &amp; COLLABORATION</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -54,14 +44,14 @@ export const ContactSection: React.FC = () => {
         </h2>
 
         <p className="text-sm sm:text-base text-slate-400 font-sans">
-          I am actively seeking cybersecurity internships and practical learning opportunities. Feel free to reach out directly via email, phone, or LinkedIn.
+          I am actively seeking cybersecurity internships and practical learning opportunities. Feel free to reach out directly via email, LinkedIn, or GitHub.
         </p>
       </div>
 
       {/* Balanced 2-Column Contact Pattern */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* ========================================================================= */}
-        {/* LEFT COLUMN: RAKSHIT'S RESUME (NO RAW PDF NAME)                           */}
+        {/* LEFT COLUMN: RAKSHIT'S RESUME                                             */}
         {/* ========================================================================= */}
         <div className="lg:col-span-6 flex">
           <GlassCard
@@ -177,14 +167,14 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span className="flex items-center gap-1.5 text-emerald-400">
                     <Mail className="w-3.5 h-3.5" />
-                    <span>EMAIL ADDRESS</span>
+                    <span>PRIMARY EMAIL</span>
                   </span>
                   <button
                     onClick={handleCopyEmail}
-                    className="flex items-center gap-1 text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer text-xs"
                   >
                     {copiedEmail ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    <span>{copiedEmail ? "COPIED" : "COPY"}</span>
+                    <span>{copiedEmail ? "COPIED" : "COPY EMAIL"}</span>
                   </button>
                 </div>
 
@@ -194,63 +184,37 @@ export const ContactSection: React.FC = () => {
                 >
                   {portfolioConfig.socials.email}
                 </a>
-              </div>
 
-              {/* Phone & WhatsApp Block */}
-              <div className="p-4 rounded-xl bg-slate-950/70 border border-white/10 space-y-2">
-                <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span className="flex items-center gap-1.5 text-cyan-400">
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>PHONE &amp; WHATSAPP</span>
-                  </span>
-                  <button
-                    onClick={handleCopyPhone}
-                    className="flex items-center gap-1 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+                <div className="pt-1">
+                  <a
+                    href={`mailto:${portfolioConfig.socials.email}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-mono transition-all"
                   >
-                    {copiedPhone ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    <span>{copiedPhone ? "COPIED" : "COPY"}</span>
-                  </button>
-                </div>
-
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-sm sm:text-base font-mono font-semibold text-white">
-                    {portfolioConfig.socials.phone}
-                  </span>
-
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={`tel:${portfolioConfig.socials.phone}`}
-                      className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-[11px] font-mono text-slate-200 hover:text-white transition-all"
-                    >
-                      Call
-                    </a>
-                    <a
-                      href="https://wa.me/919265630380"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 hover:text-white transition-all flex items-center gap-1"
-                    >
-                      <MessageCircle className="w-3 h-3 text-emerald-400" />
-                      <span>WhatsApp</span>
-                    </a>
-                  </div>
+                    <Mail className="w-3 h-3" />
+                    <span>Send Message via Mail App</span>
+                  </a>
                 </div>
               </div>
 
-              {/* Social Channels: LinkedIn & GitHub */}
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              {/* Professional Networking Cards */}
+              <div className="space-y-3">
                 <a
                   href={portfolioConfig.socials.linkedin}
                   target="_blank"
                   rel="noreferrer"
                   onMouseEnter={() => soundFX.playHover()}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-300 hover:text-white text-xs font-mono transition-all"
+                  className="flex items-center justify-between p-4 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-300 hover:text-white text-xs font-mono transition-all group/link"
                 >
-                  <div className="flex items-center gap-2">
-                    <LinkedinIcon className="w-4 h-4 text-blue-400" />
-                    <span>LINKEDIN</span>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-500/20 text-blue-400">
+                      <LinkedinIcon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">LinkedIn Profile</div>
+                      <div className="text-[11px] text-slate-400 font-mono">/in/kolawada-rakshit</div>
+                    </div>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-4 h-4 text-blue-400 group-hover/link:translate-x-1 transition-transform" />
                 </a>
 
                 <a
@@ -258,13 +222,18 @@ export const ContactSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   onMouseEnter={() => soundFX.playHover()}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white text-xs font-mono transition-all"
+                  className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white text-xs font-mono transition-all group/link"
                 >
-                  <div className="flex items-center gap-2">
-                    <GithubIcon className="w-4 h-4 text-cyan-400" />
-                    <span>GITHUB</span>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-white/10 text-cyan-400">
+                      <GithubIcon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm">GitHub Repositories</div>
+                      <div className="text-[11px] text-slate-400 font-mono">github.com/rakshitprajapati</div>
+                    </div>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover/link:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>

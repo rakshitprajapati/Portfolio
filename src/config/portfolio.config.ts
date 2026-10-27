@@ -78,7 +78,6 @@ export interface PortfolioConfig {
     linkedin: string;
     twitter?: string;
     email: string;
-    phone: string;
     resumeUrl: string;
     pgpKeyId: string;
     pgpFingerprint: string;
@@ -120,7 +119,6 @@ export const portfolioConfig: PortfolioConfig = {
     linkedin: "https://www.linkedin.com/in/kolawada-rakshit/",
     twitter: "https://x.com",
     email: "rakhitprajapati16@gmail.com",
-    phone: "+91 9265630380",
     resumeUrl: "/Kolawada_Rakshit_Resume.pdf",
     pgpKeyId: "4096R / 0x89F12DE940B7C621",
     pgpFingerprint: "E3A8 4C91 29F0 87B2 9182 0174 89F1 2DE9 40B7 C621",
@@ -364,7 +362,7 @@ export const portfolioConfig: PortfolioConfig = {
     { cmd: "projects", desc: "Display academic & hackathon projects" },
     { cmd: "resume", desc: "Download official resume PDF" },
     { cmd: "competitions", desc: "View CTF and hackathon participation details" },
-    { cmd: "contact", desc: "Display contact methods (LinkedIn, GitHub, Email, Phone)" },
+    { cmd: "contact", desc: "Display contact methods (LinkedIn, GitHub, Email)" },
     { cmd: "clear", desc: "Clear the terminal output" },
   ],
 };

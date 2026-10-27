@@ -15,11 +15,11 @@ export const CyberTerminal: React.FC = () => {
   const [logs, setLogs] = useState<LogEntry[]>([
     {
       type: "system",
-      text: "CYBER DEFENSE INTELLIGENCE SHELL v4.8 [CLASSIFIED CLEARANCE: L5]",
+      text: "RAKSHIT@NFSU-GOA INTERACTIVE SHELL v2.4 [CYBERSECURITY LAB]",
     },
     {
       type: "system",
-      text: "Type 'help' or click any quick command below to begin security queries.",
+      text: "Type 'help' or click any quick command below to explore academic projects and skills.",
     },
   ]);
   const [inputVal, setInputVal] = useState("");
@@ -119,7 +119,7 @@ export const CyberTerminal: React.FC = () => {
       case "contact":
         newLogs.push({
           type: "output",
-          text: `SECURE TRANSMISSION CHANNELS:\n  Email:       ${portfolioConfig.socials.email}\n  Mobile:      ${portfolioConfig.socials.phone}\n  GitHub:      ${portfolioConfig.socials.github}\n  LinkedIn:    ${portfolioConfig.socials.linkedin}\n  PGP Key:     ${portfolioConfig.socials.pgpKeyId}`,
+          text: `DIRECT COMMUNICATION CHANNELS:\n  Email:       ${portfolioConfig.socials.email}\n  GitHub:      ${portfolioConfig.socials.github}\n  LinkedIn:    ${portfolioConfig.socials.linkedin}\n  PGP Key:     ${portfolioConfig.socials.pgpKeyId}`,
         });
         break;
 
@@ -213,7 +213,7 @@ export const CyberTerminal: React.FC = () => {
 
   const copyDossier = () => {
     soundFX.playClick();
-    const textToCopy = `${portfolioConfig.personal.displayName} // ${portfolioConfig.personal.role}\nInstitution: National Forensic Sciences University (NFSU Goa)\nLinkedIn: ${portfolioConfig.socials.linkedin}\nGitHub: ${portfolioConfig.socials.github}\nEmail: ${portfolioConfig.socials.email}\nMobile: ${portfolioConfig.socials.phone}`;
+    const textToCopy = `${portfolioConfig.personal.displayName} // ${portfolioConfig.personal.role}\nInstitution: National Forensic Sciences University (NFSU Goa)\nLinkedIn: ${portfolioConfig.socials.linkedin}\nGitHub: ${portfolioConfig.socials.github}\nEmail: ${portfolioConfig.socials.email}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
