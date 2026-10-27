@@ -99,10 +99,10 @@ export const portfolioConfig: PortfolioConfig = {
     availability: "Seeking Cybersecurity Internships & Practical Opportunities",
     bio: "I am pursuing an M.Sc. in Cybersecurity at NFSU Goa, with a bachelor's degree in Computer Science and IT. Academic projects, hackathons, and CTF competitions have helped me develop teamwork and problem-solving skills. I am actively seeking opportunities to apply my learning and gain practical cybersecurity experience.",
     stats: [
+      { label: "Cisco CTF (Goa)", value: "1st Place" },
+      { label: "All NFSU Campuses", value: "2nd Place" },
       { label: "Degree Program", value: "M.Sc. Cyber" },
       { label: "Institution", value: "NFSU Goa" },
-      { label: "Cisco CTF Campus", value: "1st Place" },
-      { label: "Undergraduate", value: "B.Sc. CS & IT" },
     ],
   },
   telemetry: {
@@ -206,11 +206,11 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "cisco-ctf-qualification",
-      title: "Cisco Capture The Flag (CTF) Competitions",
-      tagline: "Secured 1st Place at NFSU Goa Campus and 2nd Place at Finals in NFSU Gandhinagar",
+      title: "Cisco Capture The Flag (CTF) Competition",
+      tagline: "Secured 1st Place at Goa Campus and 2nd Place overall across all NFSU campuses",
       category: "Security",
       description:
-        "Competed with Team GOA_Nulldrift in the Cisco Capture The Flag (CTF) qualification and final rounds. Solved practical technical challenges involving web application security, basic reverse engineering, network forensics, and cryptography under timed competition rules.",
+        "Competed with Team GOA_Nulldrift in the Cisco Capture The Flag (CTF) competition, securing 1st Place at the NFSU Goa Campus and achieving 2nd Place overall across all National Forensic Sciences University campuses nationwide. Solved practical technical challenges involving web application security, network packet forensics, and cryptography under timed competition rules.",
       threatModel:
         "Investigated web vulnerabilities (injection, auth bypass), packet traces (PCAP), and binary disassembly challenges to uncover flags and understand defensive remediation.",
       architecture: [
@@ -220,8 +220,8 @@ export const portfolioConfig: PortfolioConfig = {
         "Team-based collaboration and real-time problem solving",
       ],
       metrics: [
-        { label: "NFSU Goa", value: "1st Place" },
-        { label: "Finals (Gandhinagar)", value: "2nd Place" },
+        { label: "Goa Campus", value: "1st Place" },
+        { label: "All NFSU Campuses", value: "2nd Place" },
         { label: "Team", value: "GOA_Nulldrift" },
       ],
       tags: ["CTF", "Cisco", "Web Security", "Network Forensics", "Team Competition"],
@@ -287,10 +287,10 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       id: "cisco-ctf-finals",
-      name: "Cisco CTF Finals — 2nd Place (NFSU Gandhinagar)",
-      issuer: "NFSU Gandhinagar Finals",
+      name: "Cisco CTF Finals — 2nd Place Overall (Across All NFSU Campuses)",
+      issuer: "National Forensic Sciences University",
       date: "Sep 2026",
-      verificationId: "TEAM-GOA-NULLDRIFT-2ND",
+      verificationId: "ALL-NFSU-CAMPUSES-2ND",
       status: "Completed",
       badgeColor: "from-violet-500/30 to-purple-500/20",
     },
@@ -302,8 +302,8 @@ export const portfolioConfig: PortfolioConfig = {
       date: "Sep 2026",
       category: "CTF",
       content:
-        "Thrilled to announce that our team GOA_Nulldrift secured 1st Place at the NFSU Goa Campus qualification round and went on to achieve 2nd Place at the National Finals held at NFSU Gandhinagar! Grateful for the intense technical challenges spanning web vulnerabilities, packet analysis, and reverse engineering. Big thanks to Cisco and NFSU for organizing such an enriching experience!",
-      tags: ["#CiscoCTF", "#Cybersecurity", "#TeamNulldrift", "#NFSUGoa", "#ProblemSolving"],
+        "Thrilled to announce that our team GOA_Nulldrift secured 1st Place at the NFSU Goa Campus round and went on to achieve 2nd Place overall across all NFSU campuses nationwide! Grateful for the intense technical challenges spanning web vulnerabilities, packet analysis, and reverse engineering. Big thanks to Cisco and NFSU for organizing such an enriching competition!",
+      tags: ["#CiscoCTF", "#Cybersecurity", "#TeamNulldrift", "#NFSUGoa", "#AllNFSUCampuses"],
       likes: 64,
       comments: 12,
       postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",

@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
         {/* Center Cryptographic Telemetry */}
         <div className="text-center font-mono text-[11px] text-slate-500 space-y-0.5">
           <div>NODE: {portfolioConfig.telemetry.clusterNode}</div>
-          <div className="text-cyan-400/80">CISCO CTF CHAMPION // SIH 2025 ARCHITECT</div>
+          <div className="text-cyan-400/80">CISCO CTF 1ST (GOA) & 2ND OVERALL (ALL NFSU)</div>
         </div>
 
         {/* Right Actions & Scroll Top */}

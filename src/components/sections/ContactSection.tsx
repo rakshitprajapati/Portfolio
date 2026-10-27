@@ -97,7 +97,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-300 font-sans leading-relaxed">
-              M.Sc. in Cybersecurity (NFSU Goa) • Cisco CTF Winner (1st Place Campus / 2nd Place National Finals) • Smart India Hackathon System Architect.
+              M.Sc. in Cybersecurity (NFSU Goa) • Cisco CTF (1st Place Goa Campus / 2nd Place Overall Across All NFSU Campuses) • SIH 2025 System Architect.
             </p>
 
             <a
