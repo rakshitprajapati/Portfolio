@@ -6,6 +6,7 @@ import { soundFX } from "../cyber/SoundController";
 interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
+  wrapperClassName?: string;
   tiltIntensity?: number; // default 12
   glowColor?: "cyan" | "purple" | "emerald" | "amber";
   onClick?: () => void;
@@ -29,6 +30,7 @@ const BORDER_HOVER_MAP = {
 export const GlassCard: React.FC<GlassCardProps> = ({
   children,
   className = "",
+  wrapperClassName = "",
   tiltIntensity = 10,
   glowColor = "cyan",
   onClick,
@@ -70,7 +72,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   return (
     <div
       style={{ perspective: "1000px" }}
-      className="relative group transition-all duration-300"
+      className={`relative group transition-all duration-300 ${wrapperClassName}`}
     >
       <div
         ref={cardRef}
