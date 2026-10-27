@@ -8,6 +8,7 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { CyberTerminal } from "@/components/cyber/CyberTerminal";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
+import { LinkedInFeedSection } from "@/components/sections/LinkedInFeedSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <ProjectsSection />
         <CyberTerminal />
         <CertificationsSection />
+        <LinkedInFeedSection />
         <ContactSection />
       </main>
 

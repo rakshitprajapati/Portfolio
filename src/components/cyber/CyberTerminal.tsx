@@ -76,6 +76,15 @@ export const CyberTerminal: React.FC = () => {
         }
         break;
 
+      case "posts":
+        newLogs.push({
+          type: "output",
+          text: `LINKEDIN TRANSMISSION LOGS:\n${portfolioConfig.linkedinPosts
+            .map((p, i) => `  [#${i + 1}] ${p.title} (${p.date})\n      ${p.content.slice(0, 120)}...\n      ${p.postUrl}`)
+            .join("\n\n")}`,
+        });
+        break;
+
       case "skills":
         newLogs.push({
           type: "output",
@@ -252,14 +261,14 @@ export const CyberTerminal: React.FC = () => {
           <span className="text-slate-500 text-[11px] uppercase tracking-wider mr-1 hidden sm:inline">
             QUICK RUN:
           </span>
-          {["help", "whoami", "resume", "scan", "skills", "projects", "certs", "contact"].map((cmd) => (
+          {["help", "whoami", "posts", "resume", "scan", "skills", "projects", "certs", "contact"].map((cmd) => (
             <button
               key={cmd}
               onClick={() => executeCommand(cmd)}
               disabled={isScanning}
               className="px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 transition-all text-[11px] cursor-pointer whitespace-nowrap active:scale-95 disabled:opacity-50"
             >
-              {cmd === "scan" ? "⚡ scan" : cmd === "resume" ? "📄 resume" : cmd}
+              {cmd === "scan" ? "⚡ scan" : cmd === "resume" ? "📄 resume" : cmd === "posts" ? "🔗 posts" : cmd}
             </button>
           ))}
         </div>

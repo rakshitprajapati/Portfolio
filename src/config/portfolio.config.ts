@@ -23,6 +23,20 @@ export interface Certification {
   verificationId: string;
   status: "Enrolled" | "Completed" | "Participated";
   badgeColor: string;
+  image?: string;
+}
+
+export interface LinkedInPost {
+  id: string;
+  title: string;
+  date: string;
+  category: "CTF" | "Project" | "Education" | "General";
+  content: string;
+  tags: string[];
+  likes: number;
+  comments: number;
+  postUrl: string;
+  featured?: boolean;
 }
 
 export interface SkillCategory {
@@ -70,6 +84,7 @@ export interface PortfolioConfig {
   skillsCategories: SkillCategory[];
   projects: Project[];
   certifications: Certification[];
+  linkedinPosts: LinkedInPost[];
   terminalCommands: { cmd: string; desc: string }[];
 }
 
@@ -280,9 +295,64 @@ export const portfolioConfig: PortfolioConfig = {
       badgeColor: "from-violet-500/30 to-purple-500/20",
     },
   ],
+  linkedinPosts: [
+    {
+      id: "post-cisco-ctf",
+      title: "Excited to share our journey at the Cisco CTF Competition!",
+      date: "Sep 2026",
+      category: "CTF",
+      content:
+        "Thrilled to announce that our team GOA_Nulldrift secured 1st Place at the NFSU Goa Campus qualification round and went on to achieve 2nd Place at the National Finals held at NFSU Gandhinagar! Grateful for the intense technical challenges spanning web vulnerabilities, packet analysis, and reverse engineering. Big thanks to Cisco and NFSU for organizing such an enriching experience!",
+      tags: ["#CiscoCTF", "#Cybersecurity", "#TeamNulldrift", "#NFSUGoa", "#ProblemSolving"],
+      likes: 64,
+      comments: 12,
+      postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
+      featured: true,
+    },
+    {
+      id: "post-sih-2025",
+      title: "Building Guardian Global for Smart India Hackathon (SIH) 2025",
+      date: "2025",
+      category: "Project",
+      content:
+        "Honored to work as System Architect on 'Guardian Global' for Smart India Hackathon (SIH) 2025. Our team designed a smart tourist safety platform for high-risk remote regions, combining AI anomaly monitoring, blockchain-based identity verification, and real-time geo-fencing. Grateful for the mentorship and teamwork that brought this architecture together!",
+      tags: ["#SmartIndiaHackathon", "#SIH2025", "#SystemArchitecture", "#Blockchain", "#GeoFencing"],
+      likes: 58,
+      comments: 9,
+      postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
+      featured: true,
+    },
+    {
+      id: "post-ehr-api",
+      title: "Health Informatics: Bridging NAMASTE & ICD-11 TM2 Terminologies",
+      date: "2025",
+      category: "Project",
+      content:
+        "At NFSU, I conceptualized a web application MVP to integrate Indian traditional medicine datasets into modern Electronic Health Record (EHR) systems. Focused on mapping complex medical terminologies and generating automated Entity-Relationship (ER) graph models while maintaining strict healthcare privacy standards.",
+      tags: ["#EHR", "#APIDesign", "#HealthInformatics", "#ICD11", "#NFSU"],
+      likes: 42,
+      comments: 7,
+      postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
+      featured: false,
+    },
+    {
+      id: "post-nfsu-journey",
+      title: "Starting My M.Sc. in Cybersecurity Journey at NFSU Goa",
+      date: "2024",
+      category: "Education",
+      content:
+        "Having completed my Bachelor's degree in Computer Science and IT at Silver Oak University, I am excited to pursue my Master's in Cybersecurity at National Forensic Sciences University (NFSU Goa Campus). Looking forward to learning deeper forensics, offensive security, and collaborative problem-solving!",
+      tags: ["#Cybersecurity", "#NFSUGoa", "#HigherEducation", "#ContinuousLearning"],
+      likes: 89,
+      comments: 18,
+      postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
+      featured: false,
+    },
+  ],
   terminalCommands: [
     { cmd: "help", desc: "List all available terminal commands" },
     { cmd: "whoami", desc: "Display student profile and academic background" },
+    { cmd: "posts", desc: "Display latest LinkedIn activity and reflections" },
     { cmd: "education", desc: "View degree details (NFSU Goa & Silver Oak University)" },
     { cmd: "skills", desc: "List technical skills in security and software" },
     { cmd: "projects", desc: "Display academic & hackathon projects" },

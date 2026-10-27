@@ -12,6 +12,7 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
+import { LinkedinIcon } from "../cyber/Icons";
 
 interface NavItem {
   id: string;
@@ -21,11 +22,12 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: "core", label: "CORE", icon: Shield },
-  { id: "arsenal", label: "ARSENAL", icon: Cpu },
-  { id: "operations", label: "OPERATIONS", icon: Layers },
-  { id: "dossier", label: "DOSSIER", icon: Award },
+  { id: "arsenal", label: "SKILLS", icon: Cpu },
+  { id: "operations", label: "PROJECTS", icon: Layers },
+  { id: "dossier", label: "EDUCATION", icon: Award },
+  { id: "linkedin", label: "LINKEDIN", icon: LinkedinIcon },
   { id: "terminal", label: "TERMINAL", icon: TerminalIcon },
-  { id: "transmit", label: "TRANSMIT", icon: Send },
+  { id: "transmit", label: "CONTACT", icon: Send },
 ];
 
 export const SpatialDock: React.FC = () => {

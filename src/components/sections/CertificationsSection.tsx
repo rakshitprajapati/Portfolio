@@ -1,12 +1,35 @@
 "use client";
 
-import React from "react";
-import { portfolioConfig } from "@/config/portfolio.config";
+import React, { useState } from "react";
+import { portfolioConfig, Certification } from "@/config/portfolio.config";
 import { GlassCard } from "../spatial/GlassCard";
 import { DecryptedText } from "../spatial/DecryptedText";
-import { Award, CheckCircle2, ShieldCheck, Key, ExternalLink } from "lucide-react";
+import { soundFX } from "../cyber/SoundController";
+import {
+  Award,
+  CheckCircle2,
+  ShieldCheck,
+  Maximize2,
+  X,
+  ExternalLink,
+  Calendar,
+  Building,
+  FileCheck,
+} from "lucide-react";
 
 export const CertificationsSection: React.FC = () => {
+  const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
+
+  const handleOpen = (cert: Certification) => {
+    soundFX.playClick();
+    setSelectedCert(cert);
+  };
+
+  const handleClose = () => {
+    soundFX.playClick();
+    setSelectedCert(null);
+  };
+
   return (
     <section id="dossier" className="py-24 px-4 max-w-7xl mx-auto scroll-mt-20">
       {/* Section Header */}
@@ -32,11 +55,12 @@ export const CertificationsSection: React.FC = () => {
             key={cert.id}
             tiltIntensity={9}
             glowColor={idx % 2 === 0 ? "emerald" : "cyan"}
-            className="p-6 flex flex-col justify-between h-full space-y-4"
+            onClick={() => handleOpen(cert)}
+            className="p-6 flex flex-col justify-between h-full space-y-4 cursor-pointer group/card"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 group-hover/card:border-emerald-500/40 transition-colors">
                   <ShieldCheck className="w-5 h-5 text-emerald-400" />
                 </div>
                 <span className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded-full">
@@ -45,7 +69,7 @@ export const CertificationsSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="text-base font-bold text-white leading-snug">
+              <h3 className="text-base font-bold text-white leading-snug group-hover/card:text-emerald-300 transition-colors">
                 {cert.name}
               </h3>
 
@@ -54,19 +78,116 @@ export const CertificationsSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-white/5 space-y-1.5 font-mono text-[10px]">
-              <div className="flex justify-between text-slate-400">
-                <span>TIMELINE:</span>
-                <span className="text-white">{cert.date}</span>
+            <div className="space-y-3 pt-3 border-t border-white/5">
+              <div className="space-y-1.5 font-mono text-[10px]">
+                <div className="flex justify-between text-slate-400">
+                  <span>TIMELINE:</span>
+                  <span className="text-white">{cert.date}</span>
+                </div>
+                <div className="flex justify-between text-slate-400">
+                  <span>RECORD:</span>
+                  <span className="text-cyan-400">{cert.verificationId}</span>
+                </div>
               </div>
-              <div className="flex justify-between text-slate-400">
-                <span>RECORD:</span>
-                <span className="text-cyan-400">{cert.verificationId}</span>
+
+              <div className="flex items-center justify-between text-[11px] font-mono text-emerald-400/80 group-hover/card:text-emerald-300 pt-1">
+                <span>INSPECT CREDENTIAL</span>
+                <Maximize2 className="w-3.5 h-3.5 group-hover/card:scale-110 transition-transform" />
               </div>
             </div>
           </GlassCard>
         ))}
       </div>
+
+      {/* Holographic Certificate Inspection Lightbox Modal */}
+      {selectedCert && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-fade-in"
+          onClick={handleClose}
+        >
+          <div
+            className="relative w-full max-w-2xl rounded-3xl bg-slate-950/95 border border-white/20 shadow-[0_24px_64px_rgba(0,0,0,0.9)] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Accent Bar */}
+            <div className="h-1.5 bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-500" />
+
+            {/* Modal Header */}
+            <div className="flex items-start justify-between p-6 sm:p-8 border-b border-white/10">
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase">
+                  VERIFIED CREDENTIAL // {selectedCert.status}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-white pt-1">
+                  {selectedCert.name}
+                </h3>
+              </div>
+
+              <button
+                onClick={handleClose}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Body / Certificate Card Graphic */}
+            <div className="p-6 sm:p-8 space-y-6">
+              {/* Certificate Frame Preview */}
+              <div className="relative rounded-2xl border-2 border-emerald-500/30 bg-gradient-to-br from-slate-900 to-slate-950 p-6 sm:p-8 text-center space-y-4 shadow-[0_0_30px_rgba(16,185,129,0.15)] overflow-hidden">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                  <Award className="w-8 h-8" />
+                </div>
+
+                <div className="space-y-1">
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-emerald-400">
+                    ACADEMIC & COMPETITION RECOGNITION
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-white">
+                    {selectedCert.name}
+                  </h4>
+                  <p className="text-xs font-mono text-slate-300">
+                    Awarded to <span className="text-cyan-300 font-bold">{portfolioConfig.personal.displayName}</span>
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 pt-3 text-left font-mono text-xs max-w-md mx-auto">
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5 space-y-0.5">
+                    <span className="text-[10px] text-slate-400 block">ISSUING BODY</span>
+                    <span className="text-slate-200 font-semibold">{selectedCert.issuer}</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5 space-y-0.5">
+                    <span className="text-[10px] text-slate-400 block">DATE / TIMELINE</span>
+                    <span className="text-slate-200 font-semibold">{selectedCert.date}</span>
+                  </div>
+                </div>
+
+                <div className="text-[11px] font-mono text-slate-500 pt-1">
+                  CREDENTIAL RECORD: <span className="text-cyan-400">{selectedCert.verificationId}</span>
+                </div>
+              </div>
+
+              {/* Upload instructions helper */}
+              <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/20 text-xs font-mono text-slate-300 flex items-start gap-2.5">
+                <FileCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <span>
+                  Tip: To link your scanned certificate photo, drop an image into <code className="text-cyan-300 bg-black/40 px-1 py-0.5 rounded">public/certificates/{selectedCert.id}.png</code> and it will automatically display as the high-resolution photo!
+                </span>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-6 bg-slate-950 border-t border-white/10 flex justify-end">
+              <button
+                onClick={handleClose}
+                className="px-6 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-mono text-white transition-all cursor-pointer"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
