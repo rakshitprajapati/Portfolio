@@ -1,7 +1,6 @@
 "use client";
 
 import { SpatialBackground } from "@/components/spatial/SpatialBackground";
-import { CyberCursor } from "@/components/spatial/CyberCursor";
 import { SpatialDock } from "@/components/spatial/SpatialDock";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TelemetryBanner } from "@/components/cyber/TelemetryBanner";
@@ -18,8 +17,6 @@ export default function Home() {
       {/* Interactive 3D Quantum Space Background */}
       <SpatialBackground />
 
-      {/* Futuristic Precision Cyber Cursor Follower */}
-      <CyberCursor />
 
       {/* VisionOS Floating Capsule Dock */}
       <SpatialDock />
