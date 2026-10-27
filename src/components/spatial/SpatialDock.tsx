@@ -27,7 +27,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "dossier", label: "EDUCATION", icon: Award },
   { id: "linkedin", label: "LINKEDIN", icon: LinkedinIcon },
   { id: "terminal", label: "TERMINAL", icon: TerminalIcon },
-  { id: "transmit", label: "CONTACT", icon: Send },
+  { id: "contact", label: "CONTACT", icon: Send },
 ];
 
 export const SpatialDock: React.FC = () => {
