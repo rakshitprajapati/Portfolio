@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { SpatialBackground } from "@/components/spatial/SpatialBackground";
 import { SpatialDock } from "@/components/spatial/SpatialDock";
+import { CyberDiveHUD } from "@/components/spatial/CyberDiveHUD";
+import { CyberDiveSection } from "@/components/spatial/CyberDiveSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TelemetryBanner } from "@/components/cyber/TelemetryBanner";
 import { SkillsSection } from "@/components/sections/SkillsSection";
@@ -25,23 +27,43 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Interactive 3D Quantum Space Background */}
+      {/* Interactive 3D Quantum Space Background (Z-Warp Cyber Dive) */}
       <SpatialBackground />
 
+      {/* Cyber Dive Depth Telemetry HUD */}
+      <CyberDiveHUD />
 
       {/* VisionOS Floating Capsule Dock */}
       <SpatialDock />
 
-      {/* Main Content Area */}
+      {/* Main Content Area with 3D Spatial Dive Transitions */}
       <main className="relative z-10 flex flex-col">
         <HeroSection />
         <TelemetryBanner />
-        <SkillsSection />
-        <ProjectsSection />
-        <CyberTerminal />
-        <CertificationsSection />
-        <LinkedInFeedSection />
-        <ContactSection />
+
+        <CyberDiveSection>
+          <SkillsSection />
+        </CyberDiveSection>
+
+        <CyberDiveSection>
+          <ProjectsSection />
+        </CyberDiveSection>
+
+        <CyberDiveSection>
+          <CyberTerminal />
+        </CyberDiveSection>
+
+        <CyberDiveSection>
+          <CertificationsSection />
+        </CyberDiveSection>
+
+        <CyberDiveSection>
+          <LinkedInFeedSection />
+        </CyberDiveSection>
+
+        <CyberDiveSection>
+          <ContactSection />
+        </CyberDiveSection>
       </main>
 
       {/* Footer */}
