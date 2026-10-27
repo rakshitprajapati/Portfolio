@@ -65,11 +65,11 @@ export const HeroSection: React.FC = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
             <button
               onClick={() => scrollTo("operations")}
               onMouseEnter={() => soundFX.playHover()}
-              className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono font-bold text-sm transition-all shadow-[0_0_30px_rgba(6,182,212,0.45)] hover:shadow-[0_0_40px_rgba(6,182,212,0.7)] cursor-pointer active:scale-95"
+              className="h-12 px-6 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono font-bold text-sm transition-all shadow-[0_0_24px_rgba(6,182,212,0.4)] hover:shadow-[0_0_32px_rgba(6,182,212,0.6)] cursor-pointer active:scale-95 flex items-center justify-center gap-2 border border-cyan-400"
             >
               <span>EXPLORE OPERATIONS</span>
               <ArrowRight className="w-4 h-4" />
@@ -81,7 +81,7 @@ export const HeroSection: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => soundFX.playHover()}
-              className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 font-mono text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] cursor-pointer active:scale-95"
+              className="h-12 px-6 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 font-mono font-semibold text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] cursor-pointer active:scale-95 flex items-center justify-center gap-2"
             >
               <Download className="w-4 h-4 text-emerald-400" />
               <span>GET RESUME</span>
@@ -90,7 +90,7 @@ export const HeroSection: React.FC = () => {
             <button
               onClick={() => scrollTo("terminal")}
               onMouseEnter={() => soundFX.playHover()}
-              className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 hover:border-cyan-500/40 text-slate-200 font-mono text-sm transition-all backdrop-blur-xl cursor-pointer active:scale-95"
+              className="h-12 px-6 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 hover:border-cyan-500/40 text-slate-200 hover:text-white font-mono font-semibold text-sm transition-all backdrop-blur-xl cursor-pointer active:scale-95 flex items-center justify-center gap-2"
             >
               <Terminal className="w-4 h-4 text-cyan-400" />
               <span>TERMINAL</span>
@@ -98,18 +98,19 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Stat Pill Grid */}
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 items-stretch">
             {portfolioConfig.personal.stats.map((stat, idx) => (
               <GlassCard
                 key={idx}
                 tiltIntensity={5}
                 glowColor={idx % 2 === 0 ? "cyan" : "purple"}
-                className="p-3.5 text-center flex flex-col justify-center min-h-[84px]"
+                wrapperClassName="h-full w-full flex flex-col"
+                className="p-3 text-center flex flex-col justify-center items-center h-[88px] w-full"
               >
-                <div className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
+                <div className="text-base sm:text-lg lg:text-xl font-bold font-mono text-white tracking-tight whitespace-nowrap leading-tight">
                   {stat.value}
                 </div>
-                <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-1 uppercase tracking-wider truncate">
+                <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-1 uppercase tracking-wider truncate leading-tight w-full">
                   {stat.label}
                 </div>
               </GlassCard>
