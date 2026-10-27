@@ -14,6 +14,9 @@ import {
   Mail,
   ShieldCheck,
   Radio,
+  Phone,
+  Download,
+  FileText,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../cyber/Icons";
 import confetti from "canvas-confetti";
@@ -79,55 +82,43 @@ export const ContactSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: PGP & Direct Comms */}
         <div className="lg:col-span-5 space-y-6">
-          {/* PGP Credentials GlassCard */}
-          <GlassCard tiltIntensity={6} glowColor="purple" className="p-6 sm:p-8 space-y-4">
+          {/* Verified Official Resume Card */}
+          <GlassCard tiltIntensity={6} glowColor="emerald" className="p-6 sm:p-8 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-violet-500/10 border border-violet-500/20 text-violet-400">
-                <Key className="w-6 h-6" />
+              <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                <FileText className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">PGP PUBLIC KEY</h3>
-                <p className="text-xs font-mono text-violet-400">
-                  {portfolioConfig.socials.pgpKeyId}
+                <h3 className="text-base font-bold text-white">OFFICIAL RESUME</h3>
+                <p className="text-xs font-mono text-emerald-400">
+                  Kolawada_Rakshit_Resume.pdf
                 </p>
               </div>
             </div>
 
             <p className="text-xs text-slate-300 font-sans leading-relaxed">
-              Use my verified PGP public key for end-to-end encrypted dispatch of sensitive vulnerability disclosures or architectural specifications.
+              M.Sc. in Cybersecurity (NFSU Goa) • Cisco CTF Winner (1st Place Campus / 2nd Place National Finals) • Smart India Hackathon System Architect.
             </p>
 
-            <div className="p-3 rounded-xl bg-black/60 border border-white/10 font-mono text-[11px] text-slate-300 break-all space-y-2">
-              <div className="text-[10px] text-slate-500 uppercase">FINGERPRINT</div>
-              <div className="text-cyan-300">{portfolioConfig.socials.pgpFingerprint}</div>
-            </div>
-
-            <button
-              onClick={handleCopyKey}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-mono text-slate-200 hover:text-white transition-all cursor-pointer"
+            <a
+              href={portfolioConfig.socials.resumeUrl}
+              download="Kolawada_Rakshit_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs font-mono transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
             >
-              {copiedKey ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              <span>{copiedKey ? "FINGERPRINT COPIED TO CLIPBOARD" : "COPY PGP FINGERPRINT"}</span>
-            </button>
+              <Download className="w-4 h-4" />
+              <span>DOWNLOAD VERIFIED RESUME (PDF)</span>
+            </a>
           </GlassCard>
 
-          {/* Social Channels */}
+          {/* Social & Direct Comms */}
           <GlassCard tiltIntensity={6} glowColor="cyan" className="p-6 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400">
               DIRECT NETWORK CHANNELS
             </h4>
 
             <div className="grid grid-cols-2 gap-3">
-              <a
-                href={portfolioConfig.socials.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-300 hover:text-white transition-all"
-              >
-                <GithubIcon className="w-4 h-4 text-cyan-400" />
-                <span>GITHUB</span>
-              </a>
-
               <a
                 href={portfolioConfig.socials.linkedin}
                 target="_blank"
@@ -139,11 +130,29 @@ export const ContactSection: React.FC = () => {
               </a>
 
               <a
+                href={portfolioConfig.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-300 hover:text-white transition-all"
+              >
+                <GithubIcon className="w-4 h-4 text-cyan-400" />
+                <span>GITHUB</span>
+              </a>
+
+              <a
                 href={`mailto:${portfolioConfig.socials.email}`}
                 className="col-span-2 flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-300 hover:text-white transition-all"
               >
                 <Mail className="w-4 h-4 text-emerald-400" />
                 <span className="truncate">{portfolioConfig.socials.email}</span>
+              </a>
+
+              <a
+                href={`tel:${portfolioConfig.socials.phone}`}
+                className="col-span-2 flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all"
+              >
+                <Phone className="w-4 h-4 text-cyan-400" />
+                <span>{portfolioConfig.socials.phone} (Call / WhatsApp)</span>
               </a>
             </div>
           </GlassCard>

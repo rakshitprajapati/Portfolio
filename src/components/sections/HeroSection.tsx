@@ -75,13 +75,25 @@ export const HeroSection: React.FC = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
 
+            <a
+              href={portfolioConfig.socials.resumeUrl}
+              download="Kolawada_Rakshit_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => soundFX.playHover()}
+              className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 font-mono text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] cursor-pointer active:scale-95"
+            >
+              <Download className="w-4 h-4 text-emerald-400" />
+              <span>GET RESUME</span>
+            </a>
+
             <button
               onClick={() => scrollTo("terminal")}
               onMouseEnter={() => soundFX.playHover()}
-              className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 hover:border-cyan-500/40 text-slate-200 font-mono text-sm transition-all backdrop-blur-xl cursor-pointer active:scale-95"
+              className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-white/15 hover:border-cyan-500/40 text-slate-200 font-mono text-sm transition-all backdrop-blur-xl cursor-pointer active:scale-95"
             >
               <Terminal className="w-4 h-4 text-cyan-400" />
-              <span>LAUNCH TERMINAL</span>
+              <span>TERMINAL</span>
             </button>
           </div>
 

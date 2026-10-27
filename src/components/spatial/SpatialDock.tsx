@@ -81,7 +81,7 @@ export const SpatialDock: React.FC = () => {
         >
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
           <span className="font-mono text-xs font-bold text-white tracking-widest hidden sm:inline group-hover:text-cyan-400 transition-colors">
-            CYPHER // 0
+            RAKSHIT // CTF
           </span>
         </div>
 

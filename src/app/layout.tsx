@@ -19,22 +19,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Alexander Vance // Cybersecurity & High-Performance Systems Developer",
+  title: "Kolawada Rakshit // Cybersecurity & Computer Science Specialist | CTF Champion",
   description:
-    "Spatial VisionOS Cyber Defense & Software Engineering Portfolio. Specializing in zero-trust architecture, post-quantum cryptography, offensive penetration testing, and distributed systems.",
+    "M.Sc. in Cybersecurity at NFSU Goa. Cisco CTF Winner (1st Place Campus / 2nd Place National Finals) & Smart India Hackathon System Architect. Specializing in Web App Security, CTF, Vulnerability Assessment, and API Architecture.",
   keywords: [
+    "Kolawada Rakshit",
+    "Rakshit Prajapati",
     "Cybersecurity",
-    "Software Developer",
-    "Zero Trust",
-    "Post-Quantum",
-    "Rust",
-    "Golang",
-    "Three.js",
-    "Next.js",
-    "VisionOS",
-    "Infosec",
+    "NFSU Goa",
+    "Capture The Flag",
+    "CTF",
+    "Smart India Hackathon",
+    "Web Security",
+    "Vulnerability Assessment",
+    "EHR Architecture",
   ],
-  authors: [{ name: "Alexander Vance" }],
+  authors: [{ name: "Kolawada Rakshit" }],
 };
 
 export default function RootLayout({

@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center justify-center md:justify-start gap-2">
             <Shield className="w-4 h-4 text-cyan-400" />
             <span className="font-mono text-sm font-bold text-white tracking-widest">
-              {portfolioConfig.personal.displayName.toUpperCase()} // ZERO
+              {portfolioConfig.personal.displayName.toUpperCase()} // NFSU GOA
             </span>
           </div>
           <p className="text-xs font-mono text-slate-500">
@@ -30,8 +30,8 @@ export const Footer: React.FC = () => {
 
         {/* Center Cryptographic Telemetry */}
         <div className="text-center font-mono text-[11px] text-slate-500 space-y-0.5">
-          <div>NODE ID: {portfolioConfig.telemetry.clusterNode}</div>
-          <div className="text-cyan-400/80">POST-QUANTUM RESILIENT // KYBER-1024</div>
+          <div>NODE: {portfolioConfig.telemetry.clusterNode}</div>
+          <div className="text-cyan-400/80">CISCO CTF CHAMPION // SIH 2025 ARCHITECT</div>
         </div>
 
         {/* Right Actions & Scroll Top */}

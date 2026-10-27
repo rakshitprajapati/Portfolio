@@ -47,7 +47,7 @@ export const CyberTerminal: React.FC = () => {
     setHistory((prev) => [...prev, rawCmd]);
     setHistoryIndex(-1);
 
-    const newLogs: LogEntry[] = [...logs, { type: "input", text: `vance@apex-09:~$ ${rawCmd}` }];
+    const newLogs: LogEntry[] = [...logs, { type: "input", text: `rakshit@nfsu-goa:~$ ${rawCmd}` }];
 
     switch (cmd) {
       case "help":
@@ -62,8 +62,18 @@ export const CyberTerminal: React.FC = () => {
       case "whoami":
         newLogs.push({
           type: "output",
-          text: `OPERATIVE DOSSIER:\n  Name:       ${portfolioConfig.personal.displayName} (${portfolioConfig.personal.name})\n  Role:       ${portfolioConfig.personal.role}\n  Clearance:  ${portfolioConfig.personal.clearanceLevel}\n  Directive:  ${portfolioConfig.personal.bio}`,
+          text: `OPERATIVE DOSSIER:\n  Name:       ${portfolioConfig.personal.displayName} (${portfolioConfig.personal.name})\n  Institution:National Forensic Sciences University (NFSU Goa)\n  Role:       ${portfolioConfig.personal.role}\n  Clearance:  ${portfolioConfig.personal.clearanceLevel}\n  Directive:  ${portfolioConfig.personal.bio}`,
         });
+        break;
+
+      case "resume":
+        newLogs.push({
+          type: "success",
+          text: `📄 RESUME DEPLOYED:\n  File: /Kolawada_Rakshit_Resume.pdf\n  Opening verified official resume dossier...`,
+        });
+        if (typeof window !== "undefined") {
+          window.open(portfolioConfig.socials.resumeUrl, "_blank");
+        }
         break;
 
       case "skills":
@@ -73,7 +83,7 @@ export const CyberTerminal: React.FC = () => {
             .map(
               (cat) =>
                 `\n[${cat.title.toUpperCase()}]\n` +
-                cat.skills.map((s) => `  - ${s.name.padEnd(34)} [${s.level}%] // ${s.tag}`).join("\n")
+                cat.skills.map((s) => `  - ${s.name.padEnd(38)} [${s.level}%] // ${s.tag}`).join("\n")
             )
             .join("\n")}`,
         });
@@ -91,7 +101,7 @@ export const CyberTerminal: React.FC = () => {
       case "certs":
         newLogs.push({
           type: "output",
-          text: `CRYPTOGRAPHIC CREDENTIALS:\n${portfolioConfig.certifications
+          text: `CRYPTOGRAPHIC HONORS & ACCREDITATIONS:\n${portfolioConfig.certifications
             .map((c) => `  ✓ ${c.name}\n    Issuer: ${c.issuer} | ID: ${c.verificationId} | Status: ${c.status}`)
             .join("\n\n")}`,
         });
@@ -100,7 +110,7 @@ export const CyberTerminal: React.FC = () => {
       case "contact":
         newLogs.push({
           type: "output",
-          text: `SECURE TRANSMISSION CHANNELS:\n  Email:       ${portfolioConfig.socials.email}\n  GitHub:      ${portfolioConfig.socials.github}\n  LinkedIn:    ${portfolioConfig.socials.linkedin}\n  PGP Key:     ${portfolioConfig.socials.pgpKeyId}\n  Fingerprint: ${portfolioConfig.socials.pgpFingerprint}`,
+          text: `SECURE TRANSMISSION CHANNELS:\n  Email:       ${portfolioConfig.socials.email}\n  Mobile:      ${portfolioConfig.socials.phone}\n  GitHub:      ${portfolioConfig.socials.github}\n  LinkedIn:    ${portfolioConfig.socials.linkedin}\n  PGP Key:     ${portfolioConfig.socials.pgpKeyId}`,
         });
         break;
 
@@ -194,7 +204,7 @@ export const CyberTerminal: React.FC = () => {
 
   const copyDossier = () => {
     soundFX.playClick();
-    const textToCopy = `Alexander Vance // Cybersecurity & Systems Developer\nPGP: ${portfolioConfig.socials.pgpFingerprint}\nEmail: ${portfolioConfig.socials.email}`;
+    const textToCopy = `${portfolioConfig.personal.displayName} // ${portfolioConfig.personal.role}\nInstitution: National Forensic Sciences University (NFSU Goa)\nLinkedIn: ${portfolioConfig.socials.linkedin}\nGitHub: ${portfolioConfig.socials.github}\nEmail: ${portfolioConfig.socials.email}\nMobile: ${portfolioConfig.socials.phone}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -214,7 +224,7 @@ export const CyberTerminal: React.FC = () => {
             <div className="h-4 w-[1px] bg-white/10 mx-2" />
             <div className="flex items-center gap-1.5 text-xs font-mono text-slate-300">
               <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-              <span>bash - vance@apex-09 (Spatial CLI)</span>
+              <span>bash - rakshit@nfsu-goa (Spatial CLI)</span>
             </div>
           </div>
 
@@ -225,7 +235,7 @@ export const CyberTerminal: React.FC = () => {
               title="Copy credentials"
             >
               {copied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-              <span>{copied ? "COPIED" : "COPY KEY"}</span>
+              <span>{copied ? "COPIED" : "COPY CONTACT"}</span>
             </button>
             <button
               onClick={() => executeCommand("clear")}
@@ -242,14 +252,14 @@ export const CyberTerminal: React.FC = () => {
           <span className="text-slate-500 text-[11px] uppercase tracking-wider mr-1 hidden sm:inline">
             QUICK RUN:
           </span>
-          {["help", "whoami", "scan", "skills", "projects", "certs", "easteregg"].map((cmd) => (
+          {["help", "whoami", "resume", "scan", "skills", "projects", "certs", "contact"].map((cmd) => (
             <button
               key={cmd}
               onClick={() => executeCommand(cmd)}
               disabled={isScanning}
               className="px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 transition-all text-[11px] cursor-pointer whitespace-nowrap active:scale-95 disabled:opacity-50"
             >
-              {cmd === "scan" ? "⚡ scan" : cmd === "easteregg" ? "🎁 easteregg" : cmd}
+              {cmd === "scan" ? "⚡ scan" : cmd === "resume" ? "📄 resume" : cmd}
             </button>
           ))}
         </div>
@@ -298,7 +308,7 @@ export const CyberTerminal: React.FC = () => {
           {/* Interactive Command Input Line */}
           <div className="flex items-center gap-2 pt-2">
             <span className="text-emerald-400 font-semibold select-none">
-              vance@apex-09:~$
+              rakshit@nfsu-goa:~$
             </span>
             <input
               ref={inputRef}
