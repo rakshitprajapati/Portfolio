@@ -162,11 +162,11 @@ export const QuantumCore3D: React.FC = () => {
 
     // Animation Loop
     let animId: number;
-    let clock = new THREE.Clock();
+    const startTime = performance.now();
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      const elapsed = (performance.now() - startTime) * 0.001;
 
       // Dynamic color update from activeMode
       const activeColor = DEFENSE_MODES[modeRef.current].color;

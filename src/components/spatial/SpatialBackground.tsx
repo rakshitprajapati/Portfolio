@@ -182,12 +182,12 @@ export const SpatialBackground: React.FC = () => {
 
     // 7. Animation Loop with Continuous 3D Cyber Dive
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const startTime = performance.now();
     let gridOffset = 0;
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
+      const elapsedTime = (performance.now() - startTime) * 0.001;
       const now = performance.now();
       const dt = Math.max(1, now - lastScrollTime);
 
