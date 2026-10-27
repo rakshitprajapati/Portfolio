@@ -102,14 +102,14 @@ export const HeroSection: React.FC = () => {
             {portfolioConfig.personal.stats.map((stat, idx) => (
               <GlassCard
                 key={idx}
-                tiltIntensity={6}
+                tiltIntensity={5}
                 glowColor={idx % 2 === 0 ? "cyan" : "purple"}
-                className="p-3 text-center"
+                className="p-3.5 text-center flex flex-col justify-center min-h-[84px]"
               >
-                <div className="text-xl sm:text-2xl font-extrabold font-mono text-white tracking-tight">
-                  <DecryptedText text={stat.value} speed={30} maxIterations={8} revealDelay={600 + idx * 100} />
+                <div className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
+                  {stat.value}
                 </div>
-                <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-1 uppercase tracking-wider">
+                <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-1 uppercase tracking-wider truncate">
                   {stat.label}
                 </div>
               </GlassCard>

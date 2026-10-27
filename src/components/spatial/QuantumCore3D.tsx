@@ -262,10 +262,10 @@ export const QuantumCore3D: React.FC = () => {
         onMouseEnter={() => soundFX.playHover()}
       />
 
-      {/* Floating HUD Telemetry Badge (VisionOS spatial glass pill) */}
-      <div className="absolute top-2 left-2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-mono text-cyan-400">
-        <Radio className="w-3 h-3 animate-pulse text-cyan-400" />
-        <span>RADIAL: {rotationCoords.x}° / {rotationCoords.y}°</span>
+      {/* Interactive Drag Hint Badge */}
+      <div className="absolute top-2 left-2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-cyan-300">
+        <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
+        <span>INTERACTIVE 3D • DRAG TO ROTATE</span>
       </div>
 
       {/* Mode Switcher Action Button */}

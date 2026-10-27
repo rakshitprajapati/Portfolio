@@ -37,26 +37,31 @@ export const SpatialDock: React.FC = () => {
   useEffect(() => {
     const unsub = soundFX.subscribe((muted) => setIsMuted(muted));
 
-    // Intersection observer for sections
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
+    const handleScroll = () => {
+      if (typeof window === "undefined") return;
+      if (window.scrollY < 250) {
+        setActiveSection("core");
+        return;
+      }
 
-    NAV_ITEMS.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
+      const scrollPos = window.scrollY + 260;
+      const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = sections[i];
+        if (sec.offsetTop <= scrollPos) {
+          setActiveSection(sec.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       unsub();
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -74,7 +79,7 @@ export const SpatialDock: React.FC = () => {
 
   return (
     <header className="fixed top-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-full bg-slate-950/60 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] transition-all">
+      <nav className="pointer-events-auto flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-full bg-slate-950/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] transition-all">
         {/* Logo / Clearance Pill */}
         <div
           onClick={() => scrollTo("core")}
@@ -83,7 +88,7 @@ export const SpatialDock: React.FC = () => {
         >
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
           <span className="font-mono text-xs font-bold text-white tracking-widest hidden sm:inline group-hover:text-cyan-400 transition-colors">
-            RAKSHIT // CTF
+            RAKSHIT // DEV
           </span>
         </div>
 
@@ -126,7 +131,7 @@ export const SpatialDock: React.FC = () => {
               ? "bg-cyan-500/15 border-cyan-500/40 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.3)]"
               : "bg-white/5 border-white/10 text-slate-500 hover:text-slate-300"
           }`}
-          title={isMuted ? "Enable futuristic audio feedback" : "Mute audio synthesizer"}
+          title={isMuted ? "Enable subtle audio feedback" : "Mute audio synthesizer"}
         >
           {!isMuted ? (
             <>
