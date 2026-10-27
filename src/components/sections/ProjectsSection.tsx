@@ -39,15 +39,15 @@ export const ProjectsSection: React.FC = () => {
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-[11px] font-mono text-cyan-300">
           <Layers className="w-3 h-3 text-cyan-400" />
-          <span>OPERATIONAL DEPLOYMENTS // HARDENED SYSTEMS</span>
+          <span>ACADEMIC & HACKATHON WORK</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          <DecryptedText text="ACTIVE DEFENSE & PRODUCTION SYSTEMS" speed={28} />
+          <DecryptedText text="PROJECTS & ARCHITECTURES" speed={28} />
         </h2>
 
         <p className="text-sm sm:text-base text-slate-400 font-sans">
-          Production-grade systems battle-tested against real-world threat actors, high-concurrency attack vectors, and quantum cryptanalysis.
+          Practical architectures, system specifications, and solutions built during hackathons, university coursework, and technical CTFs.
         </p>
       </div>
 
@@ -150,7 +150,7 @@ export const ProjectsSection: React.FC = () => {
                 className="flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer group/btn"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform" />
-                <span>INSPECT PROTOCOL</span>
+                <span>INSPECT DETAILS</span>
               </button>
 
               <div className="flex items-center gap-3">

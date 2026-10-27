@@ -13,15 +13,15 @@ export const CertificationsSection: React.FC = () => {
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-[11px] font-mono text-emerald-300">
           <Award className="w-3 h-3 text-emerald-400" />
-          <span>CRYPTOGRAPHIC CREDENTIALS // VERIFIED DOSSIER</span>
+          <span>EDUCATION & COMPETITIONS</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          <DecryptedText text="SECURITY CERTIFICATIONS & ACCREDITATIONS" speed={28} />
+          <DecryptedText text="EDUCATION & ACHIEVEMENTS" speed={28} />
         </h2>
 
         <p className="text-sm sm:text-base text-slate-400 font-sans">
-          Industry-standard credentials verifying offensive exploitation, enterprise risk governance, cloud architecture, and container security.
+          Academic foundation in Cybersecurity and Computer Science, alongside achievements in university CTFs and national hackathons.
         </p>
       </div>
 
@@ -56,11 +56,11 @@ export const CertificationsSection: React.FC = () => {
 
             <div className="pt-3 border-t border-white/5 space-y-1.5 font-mono text-[10px]">
               <div className="flex justify-between text-slate-400">
-                <span>YEAR ISSUED:</span>
+                <span>TIMELINE:</span>
                 <span className="text-white">{cert.date}</span>
               </div>
               <div className="flex justify-between text-slate-400">
-                <span>VERIFY ID:</span>
+                <span>RECORD:</span>
                 <span className="text-cyan-400">{cert.verificationId}</span>
               </div>
             </div>

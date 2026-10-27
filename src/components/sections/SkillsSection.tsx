@@ -19,15 +19,15 @@ export const SkillsSection: React.FC = () => {
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-950/40 border border-violet-500/30 text-[11px] font-mono text-violet-300">
           <Zap className="w-3 h-3 text-violet-400" />
-          <span>CAPABILITY MATRIX // MULTI-VECTOR ARSENAL</span>
+          <span>TECHNICAL CAPABILITIES // SKILLS MATRIX</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          <DecryptedText text="CYBER DEFENSE & SOFTWARE ARSENAL" speed={30} />
+          <DecryptedText text="SKILLS & LEARNING DOMAINS" speed={30} />
         </h2>
 
         <p className="text-sm sm:text-base text-slate-400 font-sans">
-          Engineered for mission-critical resiliency. Fusing low-level offensive & defensive security operations with high-throughput distributed software architecture.
+          Practical foundation built through academic coursework at NFSU Goa, CTF competitions, and technical projects.
         </p>
       </div>
 
@@ -90,7 +90,7 @@ export const SkillsSection: React.FC = () => {
             {/* Proficiency Meter */}
             <div className="space-y-1.5 pt-2">
               <div className="flex justify-between items-center text-xs font-mono">
-                <span className="text-slate-400">HARDENED LEVEL</span>
+                <span className="text-slate-400">PRACTICAL FAMILIARITY</span>
                 <span className="text-cyan-400 font-bold">{skill.level}%</span>
               </div>
 
@@ -106,9 +106,9 @@ export const SkillsSection: React.FC = () => {
             <div className="flex items-center justify-between pt-2 border-t border-white/5 text-[10px] font-mono text-slate-500">
               <div className="flex items-center gap-1.5">
                 <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
-                <span className="text-slate-400">STATUS: COMBAT-READY</span>
+                <span className="text-slate-400">COURSEWORK & PRACTICE</span>
               </div>
-              <span>V-REF #0{idx + 1}</span>
+              <span>REF #0{idx + 1}</span>
             </div>
           </GlassCard>
         ))}

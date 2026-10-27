@@ -6,9 +6,9 @@ import { soundFX } from "../cyber/SoundController";
 import { Shield, Lock, Radio, RefreshCw } from "lucide-react";
 
 const DEFENSE_MODES = [
-  { name: "QUANTUM SHIELD", cipher: "KYBER-1024 PQ", color: 0x06b6d4, hex: "#06b6d4" },
-  { name: "ZERO-TRUST MESH", cipher: "mTLS X25519", color: 0x8b5cf6, hex: "#8b5cf6" },
-  { name: "NEURAL SENTINEL", cipher: "AES-256-GCM / SHA3", color: 0x10b981, hex: "#10b981" },
+  { name: "CTF & NETWORK FORENSICS", cipher: "PCAP / Packets", color: 0x06b6d4, hex: "#06b6d4" },
+  { name: "WEB APP SECURITY", cipher: "OWASP / Assessment", color: 0x8b5cf6, hex: "#8b5cf6" },
+  { name: "API & EHR ARCHITECTURE", cipher: "ICD-11 / Geo-fence", color: 0x10b981, hex: "#10b981" },
 ];
 
 export const QuantumCore3D: React.FC = () => {
@@ -277,7 +277,7 @@ export const QuantumCore3D: React.FC = () => {
           />
           <div>
             <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
-              CORE PROTOCOL
+              FOCUS AREA
             </div>
             <div
               className="text-xs font-mono font-bold transition-colors duration-300"
