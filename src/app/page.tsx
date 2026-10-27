@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { SpatialBackground } from "@/components/spatial/SpatialBackground";
 import { SpatialDock } from "@/components/spatial/SpatialDock";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -13,6 +14,15 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Interactive 3D Quantum Space Background */}

@@ -37,6 +37,8 @@ export interface LinkedInPost {
   comments: number;
   postUrl: string;
   featured?: boolean;
+  bannerType?: "ctf" | "sih" | "ehr" | "nfsu";
+  image?: string;
 }
 
 export interface SkillCategory {
@@ -308,6 +310,7 @@ export const portfolioConfig: PortfolioConfig = {
       comments: 12,
       postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
       featured: true,
+      bannerType: "ctf",
     },
     {
       id: "post-sih-2025",
@@ -321,6 +324,7 @@ export const portfolioConfig: PortfolioConfig = {
       comments: 9,
       postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
       featured: true,
+      bannerType: "sih",
     },
     {
       id: "post-ehr-api",
@@ -334,6 +338,7 @@ export const portfolioConfig: PortfolioConfig = {
       comments: 7,
       postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
       featured: false,
+      bannerType: "ehr",
     },
     {
       id: "post-nfsu-journey",
@@ -347,6 +352,7 @@ export const portfolioConfig: PortfolioConfig = {
       comments: 18,
       postUrl: "https://www.linkedin.com/in/kolawada-rakshit/",
       featured: false,
+      bannerType: "nfsu",
     },
   ],
   terminalCommands: [
