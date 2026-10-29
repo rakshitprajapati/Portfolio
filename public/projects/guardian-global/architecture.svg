@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="background:#020617;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#be123c" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#grid)" />
+
+  <!-- Top Status Bar -->
+  <rect x="25" y="20" width="750" height="40" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <circle cx="45" cy="40" r="5" fill="#10b981"/>
+  <text x="60" y="44" fill="#94a3b8" font-size="12" font-weight="bold">GUARDIAN GLOBAL // SPATIAL GEO-FENCING TELEMETRY ENGINE</text>
+  <rect x="620" y="28" width="140" height="24" rx="12" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1"/>
+  <text x="635" y="44" fill="#38bdf8" font-size="10" font-weight="bold">SIH 2025 PROTOCOL</text>
+
+  <!-- Left: Tourist Edge Ingress -->
+  <rect x="25" y="80" width="220" height="340" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="25" y="80" width="220" height="32" rx="12" fill="#0f172a"/>
+  <text x="40" y="101" fill="#38bdf8" font-size="11" font-weight="bold">01. EDGE TELEMETRY INGRESS</text>
+  <text x="40" y="135" fill="#e2e8f0" font-size="11" font-weight="bold">Tourist Mobile Node</text>
+  <text x="40" y="152" fill="#64748b" font-size="9">GPS + Barometer + Cell Triangulation</text>
+  
+  <rect x="38" y="170" width="194" height="60" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="48" y="190" fill="#94a3b8" font-size="9">LAT: 34.15258° N</text>
+  <text x="48" y="205" fill="#94a3b8" font-size="9">LON: 77.57705° E | ALT: 3520m</text>
+  <text x="48" y="220" fill="#10b981" font-size="9">VELOCITY: 4.2 km/h (VALID FOOT)</text>
+
+  <rect x="38" y="245" width="194" height="60" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="48" y="265" fill="#38bdf8" font-size="9">Anti-Spoofing Filter:</text>
+  <text x="48" y="280" fill="#10b981" font-size="9">✓ Monotonic Timestamp Nonce</text>
+  <text x="48" y="295" fill="#10b981" font-size="9">✓ Accelerometer Correlation</text>
+
+  <rect x="38" y="320" width="194" height="85" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="48" y="340" fill="#f59e0b" font-size="9">Low-Bandwidth Fallback:</text>
+  <text x="48" y="355" fill="#64748b" font-size="8">SMS/LoRa Compact Frame (112B)</text>
+  <text x="48" y="375" fill="#94a3b8" font-size="8">TR-8921#1730221450#34.15258</text>
+  <text x="48" y="390" fill="#94a3b8" font-size="8">#77.57705#Z04#d9f8e4a1</text>
+
+  <!-- Middle: Ray-Casting Geo-Fence Engine -->
+  <rect x="265" y="80" width="270" height="340" rx="12" fill="#0b1329" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="265" y="80" width="270" height="32" rx="12" fill="#0f172a"/>
+  <text x="280" y="101" fill="#38bdf8" font-size="11" font-weight="bold">02. RAY-CASTING GEOMETRY CORE</text>
+
+  <!-- Interactive Map Canvas representation -->
+  <rect x="280" y="125" width="240" height="150" rx="8" fill="#020617" stroke="#1e293b"/>
+  <!-- Safe zone polygon -->
+  <polygon points="300,150 420,140 440,210 320,230" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+  <text x="340" y="185" fill="#10b981" font-size="9" font-weight="bold">SAFE TRAIL CORRIDOR</text>
+  <!-- Hazard zone polygon -->
+  <polygon points="410,190 500,180 510,250 430,260" fill="#f43f5e" fill-opacity="0.25" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="425" y="225" fill="#f43f5e" font-size="8" font-weight="bold">HAZARD GORGE</text>
+  <!-- Tourist location beacon -->
+  <circle cx="435" cy="205" r="7" fill="#f43f5e" fill-opacity="0.3"/>
+  <circle cx="435" cy="205" r="3" fill="#f43f5e"/>
+
+  <rect x="280" y="290" width="240" height="115" rx="8" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="295" y="312" fill="#38bdf8" font-size="10" font-weight="bold">REAL-TIME PERIMETER AUDIT</text>
+  <text x="295" y="332" fill="#94a3b8" font-size="9">Ray-Intersection Count: <tspan fill="#f43f5e">1 (ODD = INSIDE)</tspan></text>
+  <text x="295" y="350" fill="#94a3b8" font-size="9">Evaluation Latency: <tspan fill="#10b981">14.2 ms</tspan></text>
+  <text x="295" y="368" fill="#94a3b8" font-size="9">Zone Status: <tspan fill="#f43f5e" font-weight="bold">ZONE-01 HAZARD GORGE BREACH</tspan></text>
+  <text x="295" y="388" fill="#e2e8f0" font-size="9">Alert Threshold: <tspan fill="#f59e0b">IMMEDIATE DISPATCH</tspan></text>
+
+  <!-- Right: Automated Incident Dispatch -->
+  <rect x="555" y="80" width="220" height="340" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="555" y="80" width="220" height="32" rx="12" fill="#0f172a"/>
+  <text x="570" y="101" fill="#38bdf8" font-size="11" font-weight="bold">03. INCIDENT DISPATCH TRIAGE</text>
+
+  <rect x="570" y="125" width="190" height="85" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="580" y="145" fill="#f43f5e" font-size="10" font-weight="bold">🚨 SOS TICKET #8921</text>
+  <text x="580" y="162" fill="#94a3b8" font-size="9">Assigned Outpost:</text>
+  <text x="580" y="177" fill="#e2e8f0" font-size="9" font-weight="bold">North Ridge Forest Station</text>
+  <text x="580" y="195" fill="#10b981" font-size="9">Haversine Distance: 1.4 km</text>
+
+  <rect x="570" y="225" width="190" height="85" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="580" y="245" fill="#38bdf8" font-size="10" font-weight="bold">PATROL RESPONSE TRIAGE</text>
+  <text x="580" y="265" fill="#94a3b8" font-size="9">Est. Arrival: <tspan fill="#10b981">3.4 minutes</tspan></text>
+  <text x="580" y="282" fill="#94a3b8" font-size="9">Channel: VHF Radio + SMS</text>
+  <text x="580" y="299" fill="#94a3b8" font-size="9">Telemetry Logged: SQLite Edge</text>
+
+  <rect x="570" y="325" width="190" height="80" rx="6" fill="#06b6d4" fill-opacity="0.1" stroke="#06b6d4" stroke-width="1"/>
+  <text x="580" y="348" fill="#38bdf8" font-size="10" font-weight="bold">OUTCOME BENCHMARK</text>
+  <text x="580" y="368" fill="#e2e8f0" font-size="9">End-to-End Latency: <tspan fill="#10b981">1.8s</tspan></text>
+  <text x="580" y="388" fill="#e2e8f0" font-size="9">Spoofing Precision: <tspan fill="#10b981">98.6%</tspan></text>
+</svg>

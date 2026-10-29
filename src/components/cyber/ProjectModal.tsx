@@ -91,6 +91,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </p>
           </div>
 
+          {/* Visual Architecture & Interface Artifact */}
+          {project.previewImage && (
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-4 space-y-3">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="text-cyan-300 font-bold uppercase tracking-wider flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-cyan-400" />
+                  {project.previewLabel || "REPOSITORY PREVIEW ARTIFACT"}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[10px] text-emerald-400 font-mono">
+                  VERIFIED OUTCOME
+                </span>
+              </div>
+              <div className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-black flex items-center justify-center">
+                <img
+                  src={project.previewImage}
+                  alt={project.title}
+                  className="w-full max-h-[380px] object-contain"
+                />
+              </div>
+              {project.previewNote && (
+                <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                  {project.previewNote}
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Threat Model & Attack Mitigation */}
           {project.threatModel && (
             <div className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/20">

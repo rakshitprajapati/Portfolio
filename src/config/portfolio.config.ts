@@ -13,6 +13,9 @@ export interface Project {
   featured: boolean;
   status: "Operational" | "In Development" | "Prototype" | "Open Source";
   stars?: number;
+  previewImage?: string;
+  previewLabel?: string;
+  previewNote?: string;
 }
 
 export interface Certification {
@@ -173,10 +176,13 @@ export const portfolioConfig: PortfolioConfig = {
         { label: "Focus", value: "Geo-Fencing & Safety" },
       ],
       tags: ["Smart India Hackathon", "Geo-Fencing", "Emergency Routing", "System Architecture"],
-      githubUrl: "https://github.com/rakshitprajapati",
+      githubUrl: "https://github.com/rakshitprajapati/Guardian-Global-Tourist-Safety",
       featured: true,
       status: "Prototype",
       stars: 45,
+      previewImage: "/projects/guardian-global/architecture.svg",
+      previewLabel: "SPATIAL GEO-FENCING TELEMETRY HUD",
+      previewNote: "Smart India Hackathon 2025 system architecture with Ray-Casting boundary audit & automated responder dispatch.",
     },
     {
       id: "ehr-traditional-medicine",
@@ -199,10 +205,13 @@ export const portfolioConfig: PortfolioConfig = {
         { label: "Dataset", value: "NAMASTE" },
       ],
       tags: ["API Design", "EHR Interoperability", "ICD-11 TM2", "Health Informatics", "NFSU Goa"],
-      githubUrl: "https://github.com/rakshitprajapati",
+      githubUrl: "https://github.com/rakshitprajapati/Traditional-Medicine-EHR-Framework",
       featured: true,
       status: "Prototype",
       stars: 38,
+      previewImage: "/projects/ehr/er_schema.svg",
+      previewLabel: "ICD-11 TM2 / FHIR R4 ER GRAPH SCHEMA",
+      previewNote: "NFSU Goa healthcare API middleware linking AYUSH NAMASTE portal with WHO ICD-11 TM2 classifications.",
     },
     {
       id: "cisco-ctf-qualification",
@@ -225,7 +234,7 @@ export const portfolioConfig: PortfolioConfig = {
         { label: "Team", value: "GOA_Nulldrift" },
       ],
       tags: ["CTF", "Cisco Security", "Network Forensics", "Web Security", "Wireshark"],
-      githubUrl: "https://github.com/rakshitprajapati",
+      githubUrl: "https://github.com/rakshitprajapati/POCTF-J7PMWU2H",
       featured: true,
       status: "Operational",
       stars: 52,
@@ -252,9 +261,13 @@ export const portfolioConfig: PortfolioConfig = {
       ],
       tags: ["Product Design", "PRD", "UI/UX", "HealthTech", "GitHub"],
       githubUrl: "https://github.com/rakshitprajapati/Gorilla-GRIND",
+      liveUrl: "https://www.loom.com/share/19f1db5d60a149378c9e008a40674f83?sid=71076fad-6208-4b3d-9b51-6cf7a0bb25b9",
       featured: true,
       status: "Open Source",
       stars: 48,
+      previewImage: "/projects/gorilla-grind/dashboard_screen.png",
+      previewLabel: "REPOSITORY WEBPAGE PREVIEW",
+      previewNote: "Original design from repository, branded FitQuest. Single-thumb 'fat-responsive' meal tracking with real-time macro balance.",
     },
   ],
   certifications: [

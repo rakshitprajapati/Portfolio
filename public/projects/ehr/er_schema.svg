@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="background:#020617;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="gridEHR" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#gridEHR)" />
+
+  <!-- Top Status Bar -->
+  <rect x="25" y="20" width="750" height="40" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <circle cx="45" cy="40" r="5" fill="#14b8a6"/>
+  <text x="60" y="44" fill="#94a3b8" font-size="12" font-weight="bold">NFSU GOA // TRADITIONAL MEDICINE EHR INTEROPERABILITY SCHEMA</text>
+  <rect x="615" y="28" width="145" height="24" rx="12" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="625" y="44" fill="#c084fc" font-size="10" font-weight="bold">WHO ICD-11 TM2 / FHIR</text>
+
+  <!-- Left: NAMASTE Formulation Entity -->
+  <rect x="25" y="80" width="225" height="340" rx="12" fill="#0b1329" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="25" y="80" width="225" height="32" rx="12" fill="#0f172a"/>
+  <text x="40" y="101" fill="#2dd4bf" font-size="11" font-weight="bold">01. AYUSH NAMASTE PORTAL</text>
+  
+  <rect x="38" y="125" width="199" height="135" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="48" y="145" fill="#2dd4bf" font-size="10" font-weight="bold">HERB: ASHWAGANDHA</text>
+  <text x="48" y="162" fill="#64748b" font-size="9">Code: AYU-HRB-001 (Ayurveda)</text>
+  <text x="48" y="177" fill="#94a3b8" font-size="9">Botanical: Withania somnifera</text>
+  
+  <line x1="48" y1="187" x2="225" y2="187" stroke="#1e293b" stroke-width="0.5"/>
+  <text x="48" y="202" fill="#e2e8f0" font-size="9" font-weight="bold">Active Phytochemicals:</text>
+  <text x="48" y="217" fill="#94a3b8" font-size="8.5">• Withaferin A (Steroidal lactone)</text>
+  <text x="48" y="232" fill="#94a3b8" font-size="8.5">• Withanolide D (Adaptogenic)</text>
+  <text x="48" y="247" fill="#94a3b8" font-size="8.5">• Sitoindosides VII - X</text>
+
+  <rect x="38" y="275" width="199" height="130" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="48" y="295" fill="#f59e0b" font-size="10" font-weight="bold">HERB: GUGGULU (AYU-002)</text>
+  <text x="48" y="312" fill="#64748b" font-size="9">Botanical: Commiphora mukul</text>
+  <text x="48" y="332" fill="#f43f5e" font-size="9" font-weight="bold">ADVERSE DRUG WARNING:</text>
+  <text x="48" y="350" fill="#f43f5e" font-size="8.5">⚠️ Warfarin Co-administration</text>
+  <text x="48" y="365" fill="#94a3b8" font-size="8">Severity: HIGH | Antiplatelet Risk</text>
+  <text x="48" y="385" fill="#14b8a6" font-size="8.5">Audit Speed: &lt; 15ms Flag</text>
+
+  <!-- Middle: Semantic Translation Middleware -->
+  <rect x="270" y="80" width="260" height="340" rx="12" fill="#0b1329" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="270" y="80" width="260" height="32" rx="12" fill="#0f172a"/>
+  <text x="285" y="101" fill="#c084fc" font-size="11" font-weight="bold">02. ICD-11 TM2 MAPPING CORE</text>
+
+  <rect x="285" y="125" width="230" height="110" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="295" y="145" fill="#c084fc" font-size="10" font-weight="bold">WHO ICD-11 CHAPTER 26 (TM2)</text>
+  <text x="295" y="165" fill="#e2e8f0" font-size="9">Code: <tspan fill="#38bdf8" font-weight="bold">SF01.4</tspan></text>
+  <text x="295" y="182" fill="#94a3b8" font-size="8.5">Title: Disorder of Vital Energy</text>
+  <text x="295" y="197" fill="#94a3b8" font-size="8.5">(Ojas Deficiency / Stress Syndrome)</text>
+  <text x="295" y="217" fill="#10b981" font-size="9">Mapping Precision: 99.4%</text>
+
+  <rect x="285" y="250" width="230" height="155" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="295" y="272" fill="#38bdf8" font-size="10" font-weight="bold">ER GRAPH SYNTHESIZER</text>
+  <!-- Schema Graph Representation -->
+  <circle cx="330" cy="310" r="14" fill="#14b8a6" fill-opacity="0.3" stroke="#14b8a6"/>
+  <text x="320" y="314" fill="#2dd4bf" font-size="8">HERB</text>
+  <line x1="344" y1="310" x2="385" y2="310" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="400" cy="310" r="14" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6"/>
+  <text x="390" y="314" fill="#c084fc" font-size="8">ICD11</text>
+  <line x1="400" y1="324" x2="400" y2="355" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="400" cy="370" r="14" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8"/>
+  <text x="390" y="374" fill="#38bdf8" font-size="8">FHIR</text>
+  <text x="295" y="395" fill="#64748b" font-size="8.5">Automated Multi-Herb Schema Graph</text>
+
+  <!-- Right: Standardized HL7 FHIR Output -->
+  <rect x="550" y="80" width="225" height="340" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1.5"/>
+  <rect x="550" y="80" width="225" height="32" rx="12" fill="#0f172a"/>
+  <text x="565" y="101" fill="#38bdf8" font-size="11" font-weight="bold">03. HL7 FHIR R4 OUTPUT</text>
+
+  <rect x="565" y="125" width="195" height="180" rx="6" fill="#030712" stroke="#334155" stroke-width="0.5"/>
+  <text x="575" y="145" fill="#38bdf8" font-size="9" font-weight="bold">FHIR MedicationStatement</text>
+  <text x="575" y="165" fill="#64748b" font-size="8">{</text>
+  <text x="585" y="180" fill="#94a3b8" font-size="8">"resource": "MedicationStatement",</text>
+  <text x="585" y="195" fill="#94a3b8" font-size="8">"status": "active",</text>
+  <text x="585" y="210" fill="#94a3b8" font-size="8">"coding": [</text>
+  <text x="595" y="225" fill="#2dd4bf" font-size="8">"namaste:AYU-HRB-001",</text>
+  <text x="595" y="240" fill="#c084fc" font-size="8">"who:SF01.4"</text>
+  <text x="585" y="255" fill="#94a3b8" font-size="8">],</text>
+  <text x="585" y="270" fill="#10b981" font-size="8">"compliance": "100% PASS"</text>
+  <text x="575" y="285" fill="#64748b" font-size="8">}</text>
+
+  <rect x="565" y="320" width="195" height="85" rx="6" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-width="1"/>
+  <text x="575" y="342" fill="#2dd4bf" font-size="10" font-weight="bold">RESEARCH BENCHMARK</text>
+  <text x="575" y="362" fill="#e2e8f0" font-size="9">Query Speed: <tspan fill="#10b981">7.8 ms</tspan></text>
+  <text x="575" y="380" fill="#e2e8f0" font-size="9">HL7 Validator: <tspan fill="#10b981">100% PASS</tspan></text>
+</svg>

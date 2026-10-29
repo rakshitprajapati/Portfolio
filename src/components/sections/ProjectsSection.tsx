@@ -117,6 +117,43 @@ export const ProjectsSection: React.FC = () => {
               </p>
             </div>
 
+            {/* Visual Screenshot & Architecture Preview */}
+            {project.previewImage && (
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-slate-950/80 p-3.5 space-y-2.5 backdrop-blur-md shadow-inner">
+                <div className="flex items-center justify-between text-[10px] font-mono">
+                  <span className="flex items-center gap-1.5 font-bold text-cyan-300 uppercase tracking-wider">
+                    <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                    {project.previewLabel || "REPOSITORY PREVIEW"}
+                  </span>
+                  <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400">
+                    VERIFIED ARTIFACT
+                  </span>
+                </div>
+
+                <div 
+                  onClick={() => handleInspect(project)}
+                  className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-white/10 bg-slate-950/90 flex items-center justify-center cursor-pointer group/img"
+                >
+                  <img
+                    src={project.previewImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover sm:object-contain object-top group-hover/img:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-end p-3">
+                    <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-1">
+                      <Maximize2 className="w-3 h-3" /> CLICK TO EXPAND
+                    </span>
+                  </div>
+                </div>
+
+                {project.previewNote && (
+                  <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                    {project.previewNote}
+                  </p>
+                )}
+              </div>
+            )}
+
             {/* Benchmark Metrics Bar */}
             <div className="grid grid-cols-3 gap-2 py-3 px-3.5 rounded-xl bg-black/40 border border-white/5">
               {project.metrics.map((m, mIdx) => (
