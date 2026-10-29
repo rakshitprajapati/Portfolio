@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Project } from "@/config/portfolio.config";
 import { soundFX } from "./SoundController";
 import {
@@ -11,6 +11,7 @@ import {
   ExternalLink,
   CheckCircle2,
   Lock,
+  Layers,
 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
@@ -20,6 +21,12 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const [modalImgIdx, setModalImgIdx] = useState<number>(0);
+
+  useEffect(() => {
+    setModalImgIdx(0);
+  }, [project]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -41,10 +48,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     onClose();
   };
 
+  const currentModalImg =
+    project.gallery && project.gallery[modalImgIdx]
+      ? project.gallery[modalImgIdx].image
+      : project.previewImage;
+
+  const currentModalCaption =
+    project.gallery && project.gallery[modalImgIdx]
+      ? project.gallery[modalImgIdx].caption
+      : project.previewNote;
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-xl animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-2xl animate-fade-in">
       <div
-        className="relative w-full max-w-3xl rounded-3xl bg-slate-950/90 border border-white/20 shadow-[0_24px_64px_rgba(0,0,0,0.9)] overflow-hidden transition-all"
+        className="relative w-full max-w-4xl rounded-3xl bg-slate-950/95 border border-white/20 shadow-[0_24px_64px_rgba(0,0,0,0.95)] overflow-hidden transition-all"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Ambient Top Glow */}
@@ -79,7 +96,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto">
+        <div className="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto">
           {/* Executive Overview */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
@@ -92,37 +109,84 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           {/* Visual Architecture & Interface Artifact */}
-          {project.previewImage && (
+          {currentModalImg && (
             <div className="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 p-4 space-y-3">
               <div className="flex items-center justify-between text-xs font-mono">
                 <span className="text-cyan-300 font-bold uppercase tracking-wider flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-cyan-400" />
+                  <Layers className="w-4 h-4 text-cyan-400" />
                   {project.previewLabel || "REPOSITORY PREVIEW ARTIFACT"}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[10px] text-emerald-400 font-mono">
                   VERIFIED OUTCOME
                 </span>
               </div>
-              <div className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-black flex items-center justify-center">
+
+              {/* Main Full View Image */}
+              <div className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-black flex items-center justify-center p-1">
                 <img
-                  src={project.previewImage}
+                  src={currentModalImg}
                   alt={project.title}
-                  className="w-full max-h-[380px] object-contain"
+                  className="w-full max-h-[420px] object-contain rounded-lg"
                 />
               </div>
-              {project.previewNote && (
+
+              {/* Gallery Switcher Thumbnails */}
+              {project.gallery && project.gallery.length > 1 && (
+                <div className="flex flex-wrap gap-2 pt-1 border-t border-white/5">
+                  {project.gallery.map((item, gIdx) => (
+                    <button
+                      key={gIdx}
+                      type="button"
+                      onClick={() => {
+                        soundFX.playClick();
+                        setModalImgIdx(gIdx);
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                        modalImgIdx === gIdx
+                          ? "bg-cyan-500 text-slate-950 font-bold shadow-[0_0_10px_rgba(6,182,212,0.4)]"
+                          : "bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      <span>{item.title}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {currentModalCaption && (
                 <p className="text-xs text-slate-400 font-sans leading-relaxed">
-                  {project.previewNote}
+                  {currentModalCaption}
                 </p>
               )}
             </div>
           )}
 
+          {/* Measured Outcomes & Benchmarks */}
+          {project.verifiedOutcomes && project.verifiedOutcomes.length > 0 && (
+            <div className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/25 space-y-2.5">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                <span>MEASURED OUTCOMES &amp; PERFORMANCE BENCHMARKS</span>
+              </h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {project.verifiedOutcomes.map((outcome, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2 p-2.5 rounded-xl bg-black/40 border border-white/5 text-xs text-slate-300 font-mono"
+                  >
+                    <span className="text-cyan-400 font-bold shrink-0">›</span>
+                    <span>{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Threat Model & Attack Mitigation */}
           {project.threatModel && (
-            <div className="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/20">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 mb-1 flex items-center gap-1.5">
-                <ShieldAlert className="w-4 h-4 text-cyan-400" />
+            <div className="p-4 rounded-2xl bg-violet-950/20 border border-violet-500/20">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-violet-300 mb-1 flex items-center gap-1.5">
+                <ShieldAlert className="w-4 h-4 text-violet-400" />
                 <span>SECURITY &amp; ARCHITECTURAL FOCUS</span>
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
@@ -205,20 +269,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 rel="noreferrer"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-mono text-white transition-all cursor-pointer"
               >
-                <GithubIcon className="w-3.5 h-3.5" />
-                <span>SOURCE CODE</span>
+                <GithubIcon className="w-4 h-4" />
+                <span>VIEW REPOSITORY</span>
               </a>
             )}
-
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-xs font-mono text-cyan-300 transition-all cursor-pointer"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
-                <span>LIVE SYSTEM</span>
+                <ExternalLink className="w-4 h-4" />
+                <span>LIVE DEMO / WALKTHROUGH</span>
               </a>
             )}
           </div>
